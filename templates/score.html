@@ -1,0 +1,220 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>成绩管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+                   {% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+           <div class="gallery">
+	  <h3 class="style1">成绩分类查询：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <tr>                	
+	              <td>学年学期：</td>
+	                    <td>
+							 <select name="pageXnxq" id="xnxqid" class="XNXQ_CON">
+							 	<option value="">-全部-</option>		                		
+						  			<option value="2013-20141" >2013秋季</option>						  		
+						  			<option value="2013-20142" >2014春季</option>
+						  			<option value="2013-20143" >2014夏季</option>
+						  			<option value="2014-20151" >2014秋季</option>
+						  			<option value="2014-20152" >2015春季</option>
+						  			<option value="2014-20153" selected>2015夏季</option>
+						  			<option value="2015-20161" >2015秋季</option>
+						  		
+		                	                 </select> 
+	                    </td>                  
+                    <td>重修补考：</td>
+                    <td>
+						 <select name="pageBkcxbj"  class="CXBK_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="0" selected>正考</option>
+					  		<option value="1" >补考</option>
+					  		<option value="2" >重修</option>
+	                	                 </select> 
+                    </td>
+                    <td>是否及格：</td>
+                    <td>
+						 <select name="pageSfjg"  class="SFJG_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="0" >不及格</option>
+					  		<option value="1" >及格</option>
+	                	                 </select> 
+                    </td>
+                    <td>课程：</td>
+                    <td><input type="text" value="" name="pageKcmc" style="width: 90px;"/>  <input type="submit" value="查询"/></td>
+                    
+                </tr>
+            </table>
+			<div class="details">
+			
+			<div class="det_pic">
+                             <hr/>
+			     <div class="header_bg11">
+                                            <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">序号</font></th>
+                  <th width="6%"><font color="#FFFFFF">学年学期</font></th>
+                  <th width="11%"><font color="#FFFFFF">开课院系</font></th>
+                  <th width="8%"><font color="#FFFFFF">课程代码</font></th>
+                  <th width="20%"><font color="#FFFFFF">课程名称</font></th>
+                  <th width="7%"><font color="#FFFFFF">课程性质</font></th>
+                  <th width="4%"><font color="#FFFFFF">学分</font></th>
+                  <th width="6%"><font color="#FFFFFF">是否考试课</font></th>
+                  <th width="6%"><font color="#FFFFFF">参与学分绩</font></th>
+                  <th width="8%"><font color="#FFFFFF">补考重修标记</font></th>
+                  <th width="4%"><font color="#FFFFFF">总成绩</font></th>
+                  <th width="3%"><font color="#FFFFFF">操作</font></th>
+                </tr>
+                </table>
+         	  
+			</div>
+                        <hr/>
+			<div class="det_text">
+			<p class="para1">信息1</p> 
+                        <p class="para1">信息2</p>
+			<p class="para1">信息3</p>
+			<p class="para1">信息4</p>
+			<p class="para1">信息6</p>                                                                                                                                                                                                                                                                                                                                                                            <hr/>
+                            <h3 class="style1">成绩分析：</h3> 
+                                 <hr/>                                                                                                                                                                                                
+				<div class="header_bg11">
+				  <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">学分绩</font></th>
+                  <th width="20%"><font color="#FFFFFF">学分绩排名</font></th>
+
+                  <th width="15%"><font color="#FFFFFF">GPA</font></th>
+                  <th width="15%"><font color="#FFFFFF">GPA排名</font></th>
+                 
+                  <th width="5%"><font color="#FFFFFF">操作</font></th>
+                </tr>
+                
+                </table>
+                                  
+			        </div>
+                                <hr/>
+                                <div class="det_text">
+   	                             <p class="para1">信息1</p> 
+                                  </div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+<div class="wrap">
+<div class="wrapper">
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+</html>

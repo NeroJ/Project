@@ -1,0 +1,333 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>教室查询</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+		{% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+           <div class="gallery">
+	  <h3 class="style1">教室使用情况查询：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <td><font color="#FF0000">*</font>学年学期：</td>
+                 <td> 
+					 <select name="pageXnxq" id="pageXnxq" onchange="changeXnxq()"  class="XNXQ_CON">
+					 	<option value="">-请选择-</option>
+                		
+				  			<option value="2015-20162" >2016春季</option>
+				  		
+				  			<option value="2015-20161" selected>2015秋季</option>
+				  		
+				  			<option value="2014-20153" >2015夏季</option>
+				  		
+				  			<option value="2014-20152" >2015春季</option>
+				  		
+				  			<option value="2014-20151" >2014秋季</option>
+				  		
+				  			<option value="2013-20143" >2014夏季</option>
+				  		
+				  			<option value="2013-20142" >2014春季</option>
+				  		
+				  			<option value="2013-20141" >2013秋季</option>
+				  		
+				  			<option value="2012-20132" >2013春季</option>
+				  		
+				  			<option value="2012-20131" >2012秋季</option>
+				  		
+				  			<option value="2011-20122" >2012春季</option>
+				  		
+				  			<option value="2011-20121" >2011秋季</option>
+				  		
+				  			<option value="2010-20112" >2011春季</option>
+				  		
+				  			<option value="2010-20111" >2010秋季</option>
+				  		
+				  			<option value="2009-20102" >2010春季</option>
+				  		
+				  			<option value="2009-20101" >2009秋季</option>
+				  		
+				  			<option value="2008-20093" >2009夏季</option>
+				  		
+				  			<option value="2008-20092" >2009春季</option>
+				  		
+				  			<option value="2008-20091" >2008秋季</option>
+				  		
+                	</select> 
+                    </td>
+                    <td><font color="#FF0000">*</font>周次：</td>
+                    <td> 
+                    <select name="pageZc1" id="pageZc1" class="ZC_CON">
+					 	<option value="">-请选择-</option>
+					 	
+				  			<option value="1"  >1 周</option>
+				  		
+				  			<option value="2"  >2 周</option>
+				  		
+				  			<option value="3"  >3 周</option>
+				  		
+				  			<option value="4"  >4 周</option>
+				  		
+				  			<option value="5"  >5 周</option>
+				  		
+				  			<option value="6"  >6 周</option>
+				  		
+				  			<option value="7"  >7 周</option>
+				  		
+				  			<option value="8"  >8 周</option>
+				  		
+				  			<option value="9"  >9 周</option>
+				  		
+				  			<option value="10"  >10 周</option>
+				  		
+				  			<option value="11"  >11 周</option>
+				  		
+				  			<option value="12"  >12 周</option>
+				  		
+				  			<option value="13"  >13 周</option>
+				  		
+				  			<option value="14"  >14 周</option>
+				  		
+				  			<option value="15"  >15 周</option>
+				  		
+				  			<option value="16"  >16 周</option>
+				  		
+				  			<option value="17"  >17 周</option>
+				  		
+				  			<option value="18"  >18 周</option>
+				  		
+                	
+                	</td>
+                    <td >星期：</td>
+                    <td><select name="pageXiaoqu" onchange="changeXq()"  id="pageXiaoqu" class="XIAOQU_CON">
+					 	<option value="">-全部-</option>
+                		
+				  			<option value="1" >一</option>	
+				  			<option value="2" >二</option>
+                                                        <option value="2" >三</option>
+                                                        <option value="2" >四</option>
+                                                        <option value="2" >五</option>
+                                                        <option value="2" >六</option>
+                                                        <option value="2" >日</option>
+				  		
+                	</select>   </td>                     
+
+                    <td >校区：</td>
+                    <td><select name="pageXiaoqu" onchange="changeXq()"  id="pageXiaoqu" class="XIAOQU_CON">
+					 	<option value="">-全部-</option>
+                		
+				  			<option value="1" >一校区</option>
+				  		
+				  			<option value="2" >二校区</option>
+				  		
+                	</select>   </td>
+                    <td>楼号：</td>
+                    <td>
+					 <select name="pageLhdm" onchange="changeLh()" id="pageLhdm" class="LH_CON">
+					 	<option value="">-全部-</option>
+                		
+                	</select> 
+                    </td>
+                    
+	                 <td>
+			                   	<input type="submit" value="查询"/> 
+			             </div>
+	                 </td>
+                </tr>
+            </table>
+            </form>
+            
+            
+        
+                
+               <tr> 
+                 
+                   
+                 
+                 
+		         
+                 
+		         
+                 
+		         
+                 
+		         
+                 
+		         
+                 
+		         
+                 
+		         
+				</tr>
+          
+            </table>
+			<div class="details">
+			
+			<div class="det_pic">
+                             <hr/>
+			     <div class="header_bg11">
+                                            <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">楼宇</font></th>
+                  <th width="6%"><font color="#FFFFFF">教室编号</font></th>
+                  <th width="11%"><font color="#FFFFFF">1-2节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">3-4节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">5-6节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">7-8节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">9-10节课</font></th>
+                  <th width="3%"><font color="#FFFFFF">操作</font></th>
+                </tr>
+                </table>
+         	  
+			</div>
+                        <hr/>
+			<div class="det_text">
+			<p class="para1">信息1</p> 
+                        <p class="para1">信息2</p>
+			<p class="para1">信息3</p>
+			<p class="para1">信息4</p>
+			<p class="para1">信息6</p>
+			<p class="para1">信息7</p>
+			<p class="para1">信息4</p>
+			<p class="para1">信息6</p>
+			<p class="para1">信息7</p>                                                                                                                                                                                                                                                                                                                                                                              <hr/>
+                            
+                                
+                                
+			</div>
+                        
+            <!-- Pagination -->
+           	<div id="pagination">
+            	<a href="#"><img src="../medias/imagesHome/arrows/arrow_first.png" width="16" height="16" alt="Go to First Page" title="Go to first page" /></a>
+				<a href="#"><img src="../medias/imagesHome/arrows/arrow_previous.png" width="16" height="16" alt="Previous" title="Previous" /></a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <span>3</span>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+               	<a href="#">8</a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_next.png" width="16" height="16" alt="Next" title="Next" /></a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_last.png" width="16" height="16" alt="Go to First Page" title="Go to last page" /></a>
+           </div>
+           <!-- End Pagination -->
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+<div class="wrap">
+<div class="wrapper">
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+</html>
